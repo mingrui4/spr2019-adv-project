@@ -35,11 +35,43 @@
             data: {
                 url:'./output.json'
             },
+            "hconcat": [
+            {
+            mark: 'line',
+            encoding: {
+                x: {field: 'DATE', type: 'temporal'},
+                y: {field: 'KELLY', type: 'quantitative'}
+            }
+        },
+        {
+            mark: 'line',
+            encoding: {
+                x: {field: 'DATE', type: 'temporal'},
+                y: {field: 'WEST PULLMAN', type: 'quantitative'}
+            }
+        },
+        {
+            mark: 'line',
+            encoding: {
+                x: {field: 'DATE', type: 'temporal'},
+                y: {field: 'BEVERLY', type: 'quantitative'}
+            }
+        },
+        {
+            mark: 'line',
+            encoding: {
+                x: {field: 'DATE', type: 'temporal'},
+                y: {field: 'MAYFAIR', type: 'quantitative'}
+            }
+        },
+        {
             mark: 'line',
             encoding: {
                 x: {field: 'DATE', type: 'temporal'},
                 y: {field: 'ALTGELD', type: 'quantitative'}
             }
+        }
+        ]
         };
         vegaEmbed('#vis', yourVlSpec);
     </script>
