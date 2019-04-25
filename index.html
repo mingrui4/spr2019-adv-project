@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Mingrui Yin's SPR2019-ADV Project</title>
+    <title>Matt Turk's SPR2019-ADV Project</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css">
@@ -14,68 +15,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed"></script>
 
     <link rel="stylesheet/less" type="text/css" href="styles.less" />
 
 </head>
+
 <body>
+    <div class="reveal">
+        <div class="slides">
 
-    <h1>Hello there!</h1>
+            <section data-markdown="my_presentation.md">
+            
+            </section>
 
-    <div id="vis"></div>
+        </div>
+    </div>
+    <script>
+        Reveal.initialize({
+            width: 1920,
+            height: 1080,
+        dependencies: [
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js' },
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.min.js' },
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/math/math.min.js', async: true }
+        ],
+        center: false,
+        transition: 'none',
+        backgroundTransition: 'none'
+    });
+</script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <script src="figure1.js"></script>
 
-    <!-- This is from the example embedded vega-lite demo -->
-    <script type="text/javascript">
-        var yourVlSpec = {
-            $schema: 'https://vega.github.io/schema/vega-lite/v3.0.json',
-            description: 'A simple bar chart with embedded data.',
-            data: {
-                url:'./output.json'
-            },
-            "hconcat": [
-            {
-            mark: 'line',
-            encoding: {
-                x: {field: 'DATE', type: 'temporal'},
-                y: {field: 'KELLY', type: 'quantitative'}
-            }
-        },
-        {
-            mark: 'line',
-            encoding: {
-                x: {field: 'DATE', type: 'temporal'},
-                y: {field: 'WEST PULLMAN', type: 'quantitative'}
-            }
-        },
-        {
-            mark: 'line',
-            encoding: {
-                x: {field: 'DATE', type: 'temporal'},
-                y: {field: 'BEVERLY', type: 'quantitative'}
-            }
-        },
-        {
-            mark: 'line',
-            encoding: {
-                x: {field: 'DATE', type: 'temporal'},
-                y: {field: 'MAYFAIR', type: 'quantitative'}
-            }
-        },
-        {
-            mark: 'line',
-            encoding: {
-                x: {field: 'DATE', type: 'temporal'},
-                y: {field: 'ALTGELD', type: 'quantitative'}
-            }
-        }
-        ]
-        };
-        vegaEmbed('#vis', yourVlSpec);
-    </script>
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
-</body>
+/body>
+
 </html>
