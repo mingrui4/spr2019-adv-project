@@ -1,91 +1,92 @@
 Reveal.addEventListener('ready', function(){
 var yourVlSpec = {
-    $schema: 'https://vega.github.io/schema/vega-lite/v3.0.json',
-    description: 'A simple bar chart with embedded data.',
-    data: {
-        name: 'champaign_zoning', url: './champaign.topojson',
-        "format": {
-            "type": "topojson",
-            "feature": "Zoning"
+    "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/mingrui4/spr2019-adv-project/master/output.csv"
+    },
+    "title": {
+        "text": "2014-2015 Daily Temperature (F) in CLT",
+        "anchor": "middle"
+    },
+    "config": {
+        "axis": {
+            "domain": false
         }
     },
-    "transform": [
+    "vconcat": [
         {
-            'lookup': 'properties.zoning_description',
-            'from': {
-                'fields': ['base_type'],
-                'data':
-                {
-                    'values': [
-                        { 'code': 'CB1', 'base_type': 'Commercial' },
-                        { 'code': 'CB2', 'base_type': 'Commercial' },
-                        { 'code': 'CB3', 'base_type': 'Commercial' },
-                        { 'code': 'CG', 'base_type': 'Commercial' },
-                        { 'code': 'CI', 'base_type': 'Commercial' },
-                        { 'code': 'CN', 'base_type': 'Commercial' },
-                        { 'code': 'CO', 'base_type': 'Commercial' },
-                        { 'code': 'I1', 'base_type': 'Industrial' },
-                        { 'code': 'I2', 'base_type': 'Industrial' },
-                        { 'code': 'IBP', 'base_type': 'Commercial' },
-                        { 'code': 'IOP', 'base_type': 'Commercial' },
-                        { 'code': 'IT-MF', 'base_type': 'Residential' },
-                        { 'code': 'IT-MX', 'base_type': 'Residential' },
-                        { 'code': 'IT-NC', 'base_type': 'Residential' },
-                        { 'code': 'IT-SF1', 'base_type': 'Residential' },
-                        { 'code': 'IT-SF2', 'base_type': 'Residential' },
-                        { 'code': 'MF1', 'base_type': 'Residential' },
-                        { 'code': 'MF2', 'base_type': 'Residential' },
-                        { 'code': 'MF3', 'base_type': 'Residential' },
-                        { 'code': 'MFUniv', 'base_type': 'Residential' },
-                        { 'code': 'MHP', 'base_type': 'Residential' },
-                        { 'code': 'SF1', 'base_type': 'Residential' },
-                        { 'code': 'SF2', 'base_type': 'Residential' }
-                    ]
-                },
-                'key': 'code'
-            }
-        }
-    ],
-    "hconcat": [
-        {
-            "selection": {
-                "zone_choice": {
-                    "fields": ["base_type"],
-                    "type": "single",
-                    "bind": { "input": "select", "options": ["Residential", "Industrial", "Commercial"] }
-                }
-            },
-            "mark": "geoshape",
-            "projection": {
-                "type": "albersUsa"
-            },
+            "width": 960,
+            "height": 400,
+            "mark": "rect",
             "encoding": {
-                "color": { "field": "base_type", "type": "nominal" }
-            },
-            "width": 600, "height": 400,
-            "autosize": {
-                "type": "fit",
-                "contains": "padding"
+                "x": {
+                    "field": "date",
+                    "timeUnit": "date",
+                    "type": "ordinal",
+                    "title": "Day",
+                    "axis": {
+                        "labelAngle": 0,
+                        "format": "%e"
+                    }
+                },
+                "y": {
+                    "scale": {
+                        "domain": {
+                            "selection": "brush"
+                        }
+                    },
+                    "field": "date",
+                    "timeUnit": "month",
+                    "type": "ordinal",
+                    "title": "Month"
+                },
+                "color": {
+                    "field": "KCLT_temp",
+                    "aggregate": "max",
+                    "type": "quantitative",
+                    "legend": {
+                        "title": null
+                    }
+                }
             }
         },
         {
-            "mark": "bar",
-            "transform": [
-                { "filter": { "selection": "zone_choice" } }
-            ],
+            "width": 960,
+            "height": 250,
+            "mark": {
+                "type": "line",
+                "point": {
+                    "filled": false,
+                    "fill": "grey"
+                }
+            },
+            "selection": {
+                "brush": {
+                    "type": "interval",
+                    "encodings": [
+                        "x"
+                    ]
+                }
+            },
             "encoding": {
-                "y": {
-                    "field": "properties.zoning_code",
-                    "type": "nominal"
-                },
                 "x": {
-                    "field": "properties.SHAPESTArea",
-                    "aggregate": "sum",
-                    "type": "quantitative"
+                    "timeUnit": "month",
+                    "field": "date",
+                    "type": "ordinal",
+                    "title": "Date"
+                },
+                "y": {
+                    "aggregate": "mean",
+                    "field": "KCLT_temp",
+                    "type": "quantitative",
+                    "title": "Temp"
+                },
+                "color": {
+                    "value": "grey"
                 }
             }
         }
-    ],
+    ]
 };
 
 var embedded = vegaEmbed('#vis', yourVlSpec);

@@ -1,29 +1,40 @@
-# Hi there!
+## SPR2019-ADV Final Project
 
-This is my presentation.
-
-See?
-
-**This is the presentation!**
-
-<p class="fragment">Hello.  This is a fragment.</p>
+## Mingrui Yin
 
 ---
 
+Data: U.S. Weather History Data 
+
+
+|   date   |  KCLT_temp | KCLT_precipitation |
+|----------|:----------:|-------------------:|
+| 2014-7-1 |     81     |          0         |
+| 2014-7-2 |     85     |          0         |
+| 2014-7-3 |     82     |        0.14        |
+
+> https://github.com/fivethirtyeight/data/tree/master/us-weather-history
+
+---
+
+Vega-lite Framework
 
 <div id="vis"></div>
 
 ---
 
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+Matplotlib in Python
+
+![newyork.png](newyork-weather-july14-june15.png)
 
 ---
 
-Hello, is my alert here yet?
+![seattle.png](seattle-weather-july14-june15.png)
+
+---
+
+Plotly Framework
+[Plotly](Plot 37.html)
 
 ---
 
@@ -31,3 +42,6 @@ Hello, is my alert here yet?
 
 hi there
 
+**This is the presentation!**
+
+<p class="fragment">Hello.  This is a fragment.</p>
