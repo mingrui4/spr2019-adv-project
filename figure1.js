@@ -40,7 +40,7 @@ var yourVlSpec = {
       },
       {
         "title": {
-          "text": "2014-2015 Daily Temperature (F) in nyc",
+          "text": "2014-2015 Daily Temperature (F) in NYC",
           "anchor": "middle"
         },
         "width": 960,

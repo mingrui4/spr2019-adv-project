@@ -1,47 +1,72 @@
-## SPR2019-ADV Final Project
+# SPR2019-ADV Final Project
 
-## Mingrui Yin
+## Comparison of weather in SEATTLE and NEW YORK
+
+### Mingrui Yin
 
 ---
 
-Data: U.S. Weather History Data 
+<!-- .slide: data-background-image="map.png" -->
+
+---
+
+# Data: U.S. Weather History Data 
 
 
 |   date   |  KCLT_temp | KCLT_precipitation |
-|----------|:----------:|-------------------:|
+|:---------|:----------:|:------------------:|
 | 2014-7-1 |     81     |          0         |
 | 2014-7-2 |     85     |          0         |
 | 2014-7-3 |     82     |        0.14        |
+
+
+|       Column       |                    Description                       |
+|:------------------:|:----------------------------------------------------:|
+|date                |The date of the weather record, formatted YYYY-M-D    |
+|actual_min_temp     |The measured minimum temperature for that day         |
+|average_min_temp    |The average minimum temperature on that day since 1880|
+|record_min_temp     |The lowest ever temperature on that day since 1880    |
+|record_min_temp_year|The year that the lowest ever temperature occurred    |
+|actual_precipitation|The measured amount of rain or snow for that day      |
 
 > https://github.com/fivethirtyeight/data/tree/master/us-weather-history
 
 ---
 
-Vega-lite Framework
+## Vega-lite Framework
 
 <div id="vis"></div>
 
 ---
 
-Matplotlib in Python
+## Matplotlib in Python
 
-![newyork.png](newyork-weather-july14-june15.png)
+![newyork.png](newyork-weather.png)
 
----
+<p class="fragment">The shallowest range means record highs and lows from 1880.</p>
 
-![seattle.png](seattle-weather-july14-june15.png)
+<p class="fragment">Median means average temp, the deepest means the actual range in 2014-2015.</p>
 
----
-
-Plotly Framework
-[Plotly](Plot 37.html)
 
 ---
 
-<!-- .slide: data-background-color="#999999" -->
+![seattle.png](seattle-weather.png)
 
-hi there
+<p class="fragment">The red bullet means new record high temp.</p>
 
-**This is the presentation!**
+<p class="fragment">The weather in Seattle is hotter than in previous years.</p>
 
-<p class="fragment">Hello.  This is a fragment.</p>
+---
+
+## Plotly Framework
+
+[Plotly](Plotly.html)
+
+**Rainfall** is more average in New York, is mainly concentrated in winter in Seattle.
+
+Despite the similar **Temperature** in summer, in New York, winter is significantly colder than Seattle's.
+
+---
+
+# Thank you!
+
