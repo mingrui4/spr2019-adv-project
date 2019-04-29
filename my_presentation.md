@@ -10,7 +10,7 @@
 
 ---
 
-# Data: U.S. Weather History Data 
+## Data: U.S. Weather History
 
 |       Column       |                    Description                       |
 |:------------------:|:----------------------------------------------------:|
