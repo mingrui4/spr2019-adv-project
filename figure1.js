@@ -32,7 +32,7 @@ var yourVlSpec = {
           },
           "color": {
             "field": "KSEA_temp",
-            "aggregate": "max",
+            "aggregate": "mean",
             "type": "quantitative",
             "legend": {"title": null}
           }
@@ -63,7 +63,7 @@ var yourVlSpec = {
           },
           "color": {
             "field": "KNYC_temp",
-            "aggregate": "max",
+            "aggregate": "mean",
             "type": "quantitative",
             "legend": {"title": null}
           }
